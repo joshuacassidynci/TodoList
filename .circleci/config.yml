@@ -28,8 +28,17 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: hello
-          command: echo hello
+          name: docker-login
+          command: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - run:
+          name: build-docker-image
+          command: docker build -t $IMAGE_NAME:latest .
+      - run:
+          name: publish-docker-image
+          command: docker push $IMAGE_NAME
+      - run:
+          name: run-docker-image
+          command: docker run -p 3000:3000 -d $IMAGE_NAME
   deploy:
     docker:
       - image: cimg/ruby:3.1.0
