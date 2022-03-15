@@ -24,6 +24,8 @@ jobs:
     working_directory: ~/todo_list
     docker:
       - image: cimg/ruby:3.1.0
+    environment:
+      SECRET_KEY_BASE: $SECRET_KEY_BASE
     steps:
       - checkout
       - setup_remote_docker
