@@ -24,8 +24,6 @@ jobs:
     working_directory: ~/todo_list
     docker:
       - image: cimg/ruby:3.1.0
-    environment:
-      SECRET_KEY_BASE: $SECRET_KEY_BASE
     steps:
       - checkout
       - setup_remote_docker
@@ -34,7 +32,7 @@ jobs:
           command: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - run:
           name: build-docker-image
-          command: docker build -t $IMAGE_NAME:latest .
+          command: docker build -t $IMAGE_NAME:latest . --build-arg SECRET_KEY_BASE=$SECRET_KEY_BASE
       - run:
           name: publish-docker-image
           command: docker push $IMAGE_NAME
