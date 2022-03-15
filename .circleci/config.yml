@@ -24,11 +24,9 @@ jobs:
     working_directory: ~/todo_list
     docker:
       - image: cimg/ruby:3.1.0
-    executor: ruby/default
     steps:
       - checkout
       - setup_remote_docker
-      - ruby/bundle-install
       - run:
           name: hello
           command: echo hello
