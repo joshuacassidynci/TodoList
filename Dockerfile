@@ -4,6 +4,7 @@ RUN apt-get update -yqq
 RUN apt-get install -yqq --no-install-recommends nodejs
 
 COPY . /usr/src/app/
+ARG SECRET_KEY_BASE
 
 WORKDIR /usr/src/app
 ENV RAILS_ENV=production
