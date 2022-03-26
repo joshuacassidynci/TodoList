@@ -36,7 +36,7 @@ class TodoTest < ActiveSupport::TestCase
     @cat_todo.update({
       title: cat_update_title
     })
-    assert_equal(cat_update_title, @cat_todo.title)
+    assert_equal(cat_update_title, "x")
   end
 
   test "should be completed when true" do
