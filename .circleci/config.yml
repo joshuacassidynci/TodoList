@@ -28,9 +28,6 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: application-tests
-          command: rails test
-      - run:
           name: docker-login
           command: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - run:
