@@ -7,6 +7,7 @@ COPY . /usr/src/app/
 ARG SECRET_KEY_BASE
 
 WORKDIR /usr/src/app
+RUN rails test
 ENV RAILS_ENV=production
 ENV SECRET_KEY_BASE=${SECRET_KEY_BASE}
 
