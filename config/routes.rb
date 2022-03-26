@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root :controller=>'todos', :action=>'index'
+  get "/another_page", :controller=>'todos', :action=>'another_page'
 end

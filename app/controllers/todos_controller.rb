@@ -23,7 +23,6 @@ class TodosController < ApplicationController
   # POST /todos or /todos.json
   def create
     @todo = Todo.new(todo_params)
-    puts(todo_params)
     respond_to do |format|
       if @todo.save
         format.html { redirect_to todo_url(@todo), notice: "Todo was successfully created." }
